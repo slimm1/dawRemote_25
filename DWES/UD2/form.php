@@ -116,10 +116,10 @@ function validateMark($mark): ?int {
                 echo "<p>No hay notas almacenadas.</p>";
             } else {
                 foreach ($examenes as $nota) {
-                    echo "<p>Tipo: Examen - Nota: {$nota}</p>";
+                    echo "<p>Tipo: Examen - Nota: $nota</p>";
                 }
                 foreach ($tareas as $nota) {
-                    echo "<p>Tipo: Tarea - Nota: {$nota}</p>";
+                    echo "<p>Tipo: Tarea - Nota: $nota</p>";
                 }
             }
             ?>
