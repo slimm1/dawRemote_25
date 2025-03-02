@@ -1,0 +1,126 @@
+body {
+    margin: 0;
+}
+
+h1 {
+    margin: 0;
+}
+
+h2 {
+    margin: 0;
+}
+
+.slim-header-main {
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+    min-height: 1500px;
+}
+
+.slim-header-main::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../assets/manos_al_barro.jpg); 
+    background-size: cover;
+    background-position: center top;
+    filter: blur(1.5px); 
+    opacity: 0.8;
+    z-index: -1;
+}
+
+.slim-img-wrapper.home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%; 
+}
+
+.slim-img-wrapper.home img {
+    width: 200px;
+    height: 100%; 
+    object-fit: cover; 
+}
+
+.slim-header-nav {
+    display: flex;
+    height: 10%;
+    width: 100%;
+}
+
+.slim-nav-items {
+    display: flex;
+    width: 100%;
+    margin-left: 50%;
+    justify-content: space-between;  
+    align-items: center;  
+}
+
+.slim-nav-item {
+    font-size: 2vh;
+    color: #FFF8E8;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out; 
+}
+
+.slim-nav-item:nth-child(4) {
+    color: #674636;
+    background-color: #FFF8E8;
+    border-radius: 40px;
+    margin-right: 5%;
+    padding: 30px;
+    transition: color 0.1s; 
+}
+
+.slim-nav-item:hover {
+    color: #AAB396;
+}
+
+.slim-nav-item:nth-child(4):hover {
+    color: #FFF8E8;
+    background-color: #674636;
+    border-radius: 40px;
+    padding: 30px;
+}
+
+.slim-header-home {
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.slim-header-home .slim-title h1 {
+    font-size: 20vh;
+    color: #FFF8E8;
+    -webkit-text-stroke: 1px #674636; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.slim-header-home .slim-title .switch h1 {
+    color: #674636;
+    -webkit-text-stroke: 1px #FFF8E8; 
+}
+
+.slim-title {
+    display: flex;
+    justify-content: space-between;
+    padding: 15vh;
+}
+
+.slim-subtitle {
+    display: flex;
+    justify-content: end;
+    padding: 5vh;
+    margin-right: 6%;
+}
+
+.slim-subtitle h2 {
+    font-size: 5vh;
+    color: #FFF8E8;
+    -webkit-text-stroke: 1px #674636; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
