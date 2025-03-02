@@ -27,11 +27,14 @@ footer {
     flex-direction: row;
 }
 
+.slim-hamburger-container {
+    display: none;
+}
+
 .slim-header-main {
     position: relative;
     overflow: hidden;
     height: 100vh;
-    min-height: 1500px;
 }
 
 .slim-header-main::before {
@@ -57,9 +60,16 @@ footer {
 }
 
 .slim-img-wrapper.home img {
-    width: 350px;
+    width: 100px;
     height: 100%; 
     object-fit: cover; 
+    cursor: pointer;
+    transition: transform 0.1s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.slim-img-wrapper.home img:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 6px 12px #FFF8E8;
 }
 
 .slim-header-nav {
@@ -78,12 +88,15 @@ footer {
 
 .slim-nav-item {
     color: #FFF8E8;
-    transition: color 0.2s ease-in-out; 
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    transition: color 0.2s ease-in-out, box-shadow 0.1s ease-in-out;
 }
 
 .slim-nav-item:nth-child(4) {
     color: #674636;
     background-color: #FFF8E8;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    text-shadow: none;
     border-radius: 60px;
     margin-right: 5%;
     padding: 2%;
@@ -94,10 +107,12 @@ footer {
 
 .slim-nav-item:hover {
     color: #AAB396;
+    text-shadow: 2px 2px 20px #FFF8E8;
 }
 
 .slim-nav-item:nth-child(4):hover {
     color: #FFF8E8;
+    text-shadow: none;
     background-color: #674636;
 }
 
@@ -111,7 +126,7 @@ footer {
     font-size: 20vh;
     color: #FFF8E8;
     -webkit-text-stroke: 1px #674636; 
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 .slim-header-home .slim-title .switch h1 {
@@ -125,6 +140,12 @@ footer {
     padding: 15vh;
 }
 
+.slim-title-items {
+    display: flex;
+    justify-content: space-between;
+    width: 58%;
+}
+
 .slim-subtitle {
     display: flex;
     justify-content: end;
@@ -136,7 +157,7 @@ footer {
     font-size: 5vh;
     color: #FFF8E8;
     -webkit-text-stroke: 1px #674636; 
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 .slim-section {
@@ -164,7 +185,7 @@ footer {
     margin-left: 2%;
     color: #674636;
     -webkit-text-stroke: 1px #FFF8E8; 
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 .slim-section-content.row {
@@ -191,10 +212,11 @@ footer {
     height: 80%;
     padding: 2%;
     padding-top: 0;
+    align-items: center;
 }
 
-.slim-img-wrapper img {
-    width: 100%;
+.who-we-are .slim-img-wrapper img {
+    width: 300px;
     height: 100%;
     object-fit: cover; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
@@ -248,8 +270,8 @@ footer {
     padding: 3%;
 }
 
-.slim-section.workshop .slim-img-wrapper img{
-    height: 70%;
+.workshop .slim-img-wrapper img{
+    width: 600px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
 }
 
@@ -271,7 +293,7 @@ footer {
 .workshop .slim-title {
     display: flex;
     align-items: center;
-    height: 20%;
+    height: 25%;
 }
 
 .workshop .slim-section-p {
@@ -282,16 +304,16 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 20%;
+    height: 25%;
 }
 
 .slim-action-button {
     color: #674636;
     background-color: #FFF8E8;
     border-radius: 60px;
-    padding: 60px;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding: 2%;
+    padding-top: 1%;
+    padding-bottom: 1%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
     transition: color 0.1s; 
 }
@@ -332,7 +354,7 @@ footer {
 }
 
 .collection .slim-section-p {
-    height: 35%;
+    height: 55%;
 }
 
 .collection p {
@@ -365,4 +387,352 @@ footer {
 .slim-footer-section:nth-child(1) {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+}
+
+.slim-footer-section p {
+    color: #674636;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    padding: 2%;
+}
+
+.slim-footer-section p:nth-child(1) {
+    color: #FFF8E8;
+}
+
+.slim-footer-section.slim-section-button {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.slim-footer-section .slim-action-button {
+    color: #FFF8E8;
+    background-color: #674636;
+    padding: 2.5%;
+    margin-right: 5%;
+}
+
+.slim-footer-section .slim-action-button:hover {
+    color: #674636;
+    background-color: #FFF8E8;
+}
+
+.social-media {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-media .slim-icon-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.slim-icon-row i {
+    font-size: 3vh;
+    color: #674636;
+    margin: 10px;
+    transition: color 0.3s ease;
+}
+
+.slim-icon-row i:hover {
+    color: #FFF8E8;
+}
+
+
+/* Media queries */
+
+@media (max-width: 1650px) {
+    .workshop .slim-img-wrapper img {
+        width: 500px;
+    }
+}
+
+@media (max-width: 1480px) {
+    .slim-header-home .slim-title {
+        flex-direction: column;
+    }
+
+    .slim-title-items {
+        width: 80%;
+        justify-content: flex-start;
+    }
+
+    .slim-title-items .slim-title-item:nth-child(2){
+        margin-left: 5%;
+    }
+
+    .switch {
+        display: flex;
+        width: 100%;
+        justify-content: end;
+    }
+
+    .slim-header-home .slim-subtitle {
+        padding-top: 0;
+    }
+
+    .who-we-are .slim-img-wrapper img {
+        width: 250px;
+        height: 80%;
+    }
+}
+
+@media (max-width: 1380px) {
+    .workshop .slim-img-wrapper img {
+        width: 400px;
+    }
+}
+
+@media (max-width: 1300px) {
+    p {
+        font-size: 1.9vh;
+    }
+}
+
+@media (max-width: 1200px) {
+    .who-we-are .slim-img-wrapper img {
+        width: 200px;
+        height: 70%;
+    }
+}
+
+@media (max-width: 1120px) {
+    .slim-section .slim-title h1 {
+        font-size: 6.5vh;
+    }
+
+    .slim-subtitle h2 {
+        font-size: 4.5vh;
+    }
+
+    p {
+        font-size: 1.7vh;
+    }
+
+    .workshop .slim-img-wrapper img {
+        width: 300px;
+    }
+
+    .who-we-are .slim-img-wrapper img {
+        width: 150px;
+        height: 50%;
+    }
+}
+
+@media (max-width: 940px) {
+    .slim-subtitle h2 {
+        font-size: 3.5vh;
+    }
+
+    .slim-header-home .slim-title h1{
+        font-size: 15vh;
+    }
+
+    .slim-nav-items {
+        display: none;
+    }
+
+    .slim-header-nav {
+        justify-content: space-between;
+    }
+
+    .slim-hamburger-container {
+        display: flex;
+        width: 60px
+    }
+
+    .slim-navbar-toggler {
+        background: none;
+        border: none;
+        font-size: 3rem; 
+        cursor: pointer;
+    }
+    
+    .slim-navbar-toggler i {
+        color: #FFF8E8; 
+    }
+
+    .slim-section.workshop {
+        flex-direction: column-reverse;
+        align-items: center;
+        text-align: center;
+        height: 100vh;
+    }
+    
+    .slim-section-content.col {
+        width: 100%;
+        height: 100%;
+    }
+
+    .slim-section-content.col .slim-title {
+        justify-content: center;
+    }
+
+    .slim-section.workshop .slim-img-wrapper {
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 50px;
+    }
+
+    .slim-section.collection .slim-title h1 {
+        font-size: 5vh;
+        text-align: center;
+        -webkit-text-stroke: 0.5px #FFF8E8; 
+    }
+}
+
+@media (max-width: 800px) {
+    .slim-section.who-we-are .slim-title {
+        height: 20%;
+    }
+
+    .slim-section-content.row {
+        height: 80%;
+    }
+
+    .slim-subtitle h2 {
+        font-size: 3vh;
+    }
+
+    .who-we-are .slim-img-wrapper img {
+        width: 120px;
+        height: 30%;
+    }
+}
+
+@media (max-width: 750px) {
+    .slim-header-home .slim-title h1{
+        font-size: 12vh;
+    }
+
+    .slim-subtitle h2 {
+        font-size: 2.5vh;
+        -webkit-text-stroke: 0.5px #674636; 
+    }
+}
+
+@media (max-width: 660px) {
+    .slim-section.who-we-are {
+        height: 100vh;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .who-we-are .slim-section-content.row {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .who-we-are .slim-title {
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .who-we-are .slim-section-p {
+        width: 95%;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .who-we-are .slim-img-wrapper {
+        width: 100%;
+        justify-content: center;
+        padding: 0;
+    }
+
+    .slim-header-home .slim-title h1{
+        font-size: 8vh;
+    }
+
+    .slim-subtitle h2 {
+        font-size: 2vh;
+        -webkit-text-stroke: 0.3px #674636; 
+    }
+
+    .slim-section.workshop .slim-title {
+        height: 25%;
+    }
+
+    .slim-section.workshop .slim-section-p {
+        height: 70%;
+    }
+
+    .slim-section.workshop .slim-section-button {
+        height: 15%;
+    }
+}
+
+@media (max-width: 530px) {
+    .slim-header-home .slim-title {
+        padding: 0;
+        padding-top: 20vh;
+    }
+
+    .slim-title-items {
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .switch {
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .slim-header-home .slim-subtitle {
+        padding-top: 20vh;
+        text-align: center;
+    }
+
+    .slim-section.collection .slim-title h1 {
+        font-size: 3.5vh;
+        -webkit-text-stroke: 0.3px #FFF8E8; 
+    }
+
+    .slim-section.workshop .slim-title h1 {
+        font-size: 3.5vh;
+    }
+
+    .slim-section.workshop .slim-title {
+        height: 15%;
+    }
+
+    .who-we-are .slim-title h1 {
+        font-size: 5vh;
+        text-align: center;
+    }
+}
+
+@media (max-width: 420px) {
+    p {
+        font-size: 1.6vh;
+    }
+
+    .slim-section.workshop .slim-img-wrapper img {
+        width: 200px;
+    }
+}
+
+@media (max-width: 355px) {
+    .slim-section.workshop .slim-img-wrapper {
+        display: none;
+    }
+
+    .who-we-are .slim-title h1 {
+        font-size: 3.5vh;
+        text-align: center;
+        -webkit-text-stroke: 0.1px #FFF8E8; 
+    }
+
+    .slim-section.who-we-are .slim-img-wrapper {
+        display: none;
+    }
 }
