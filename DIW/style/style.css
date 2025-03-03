@@ -99,9 +99,9 @@ footer {
     text-shadow: none;
     border-radius: 60px;
     margin-right: 5%;
-    padding: 2%;
-    padding-top: 1%;
-    padding-bottom: 1%;
+    padding: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     transition: color 0.1s; 
 }
 
@@ -311,9 +311,9 @@ footer {
     color: #674636;
     background-color: #FFF8E8;
     border-radius: 60px;
-    padding: 2%;
-    padding-top: 1%;
-    padding-bottom: 1%;
+    padding: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
     transition: color 0.1s; 
 }
@@ -379,6 +379,12 @@ footer {
     background-color: #FFF8E8;
 }
 
+.slim-footer-section-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex: 2;
+}
+
 .slim-footer-section {
     display: flex;
     flex: 1;
@@ -409,7 +415,9 @@ footer {
 .slim-footer-section .slim-action-button {
     color: #FFF8E8;
     background-color: #674636;
-    padding: 2.5%;
+    padding: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     margin-right: 5%;
 }
 
@@ -442,9 +450,93 @@ footer {
     color: #FFF8E8;
 }
 
+/* ESTILOS ESPECIFICOS DE VISTA DE TALLERES */
+
+.workshop-view .slim-header-main {
+    height: 80vh;
+}
+
+.workshop-view .slim-header-main::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../assets/barro.jpg); 
+    background-size: cover;
+    background-position: center top;
+    filter: blur(1.5px); 
+    opacity: 0.8;
+    z-index: -1;
+}
+
+.workshop-view .workshop {
+    height: 100vh;
+    flex-direction: column;
+}
+
+.workshop-view .slim-header-main .slim-title {
+    flex-direction: column;
+}
+
+.workshop-view .slim-header-main .slim-title h1 {
+    font-size: 10vh;
+}
+
+.workshop-view .workshop .slim-title {
+    width: 100%;
+    height: 20%;
+}
+
+.slim-grid {
+    padding: 5vh;
+    height: 60%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    overflow: hidden; 
+}
+
+.workshop-item p {
+    color: #674636;
+}
+
+.workshop-item h3 {
+    padding: 0;
+    margin: 0;
+    color: #674636;
+    font-size: 3vh;
+}
+
+.workshop-item {
+    background: #FFF8E8;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.workshop-item .item-title {
+    display: flex;
+    align-items: center;
+    height: 30%;
+}
+
+.workshop-item .item-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 50%;
+}
+
+.workshop-item .item-action {
+    height: 20%;
+}
 
 /* Media queries */
-
 @media (max-width: 1650px) {
     .workshop .slim-img-wrapper img {
         width: 500px;
@@ -452,6 +544,11 @@ footer {
 }
 
 @media (max-width: 1480px) {
+
+    .workshop-view .slim-title h1 {
+        font-size: 8vh;
+    }
+
     .slim-header-home .slim-title {
         flex-direction: column;
     }
@@ -524,6 +621,16 @@ footer {
 }
 
 @media (max-width: 940px) {
+
+    .workshop-view .slim-header-home .slim-title h1 {
+        font-size: 6vh;
+    }
+
+    .workshop-view .slim-header-home .slim-title {
+        padding-left: 5vh;
+        padding-right: 5vh;
+    }
+
     .slim-subtitle h2 {
         font-size: 3.5vh;
     }
@@ -586,6 +693,11 @@ footer {
 }
 
 @media (max-width: 800px) {
+    .workshop-view .slim-header-home .slim-title h1 {
+        font-size: 4vh;
+        -webkit-text-stroke: 0.2px #FFF8E8; 
+    } 
+
     .slim-section.who-we-are .slim-title {
         height: 20%;
     }
@@ -612,6 +724,25 @@ footer {
     .slim-subtitle h2 {
         font-size: 2.5vh;
         -webkit-text-stroke: 0.5px #674636; 
+    }
+
+    footer {
+        height: 30vh;
+        flex-direction: column;
+    }
+
+    footer .slim-footer-section:nth-child(1) {
+        height: 70%;
+        flex: none;
+    }
+
+    .slim-footer-section-wrapper {
+        height: 30%;
+        flex: none;
+    }
+
+    .social-media {
+        align-items: start;
     }
 }
 
@@ -734,5 +865,19 @@ footer {
 
     .slim-section.who-we-are .slim-img-wrapper {
         display: none;
+    }
+
+    footer .slim-footer-section:nth-child(1) {
+        height: 50%;
+    }
+
+    .slim-footer-section-wrapper {
+        flex-direction: column;
+        height: 50%;
+    }
+
+    .slim-footer-section-wrapper .slim-footer-section {
+        align-items: center;
+        justify-content: center;
     }
 }
