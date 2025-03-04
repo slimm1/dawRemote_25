@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    font-family: "Open Sans", sans-serif;
 }
 
 h1 {
@@ -12,11 +13,11 @@ h2 {
 
 p {
     margin: 0;
-    font-size: 2vh;
+    font-size: 1.8vh;
 }
 
 a {
-    font-size: 2vh;
+    font-size: 1.8vh;
     text-decoration: none;
 }
 
@@ -35,6 +36,7 @@ footer {
     position: relative;
     overflow: hidden;
     height: 100vh;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
 }
 
 .slim-header-main::before {
@@ -123,7 +125,7 @@ footer {
 }
 
 .slim-header-home .slim-title h1 {
-    font-size: 20vh;
+    font-size: 16vh;
     color: #FFF8E8;
     -webkit-text-stroke: 1px #674636; 
     text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
@@ -154,7 +156,7 @@ footer {
 }
 
 .slim-subtitle h2 {
-    font-size: 5vh;
+    font-size: 4.5vh;
     color: #FFF8E8;
     -webkit-text-stroke: 1px #674636; 
     text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
@@ -181,7 +183,7 @@ footer {
 }
 
 .slim-section .slim-title h1 {
-    font-size: 8vh;
+    font-size: 7vh;
     margin-left: 2%;
     color: #674636;
     -webkit-text-stroke: 1px #FFF8E8; 
@@ -481,7 +483,7 @@ footer {
 }
 
 .workshop-view .slim-header-main .slim-title h1 {
-    font-size: 10vh;
+    font-size: 8vh;
 }
 
 .workshop-view .workshop .slim-title {
@@ -506,7 +508,7 @@ footer {
     padding: 0;
     margin: 0;
     color: #674636;
-    font-size: 3vh;
+    font-size: 2.5vh;
 }
 
 .workshop-item {
@@ -545,8 +547,8 @@ footer {
 
 @media (max-width: 1480px) {
 
-    .workshop-view .slim-title h1 {
-        font-size: 8vh;
+    .workshop-view .slim-header-main  .slim-title h1 {
+        font-size: 6vh;
     }
 
     .slim-header-home .slim-title {
@@ -586,7 +588,7 @@ footer {
 
 @media (max-width: 1300px) {
     p {
-        font-size: 1.9vh;
+        font-size: 1.6vh;
     }
 }
 
@@ -603,11 +605,11 @@ footer {
     }
 
     .slim-subtitle h2 {
-        font-size: 4.5vh;
+        font-size: 3.5vh;
     }
 
     p {
-        font-size: 1.7vh;
+        font-size: 1.4vh;
     }
 
     .workshop .slim-img-wrapper img {
@@ -623,7 +625,7 @@ footer {
 @media (max-width: 940px) {
 
     .workshop-view .slim-header-home .slim-title h1 {
-        font-size: 6vh;
+        font-size: 4vh;
     }
 
     .workshop-view .slim-header-home .slim-title {
@@ -632,7 +634,7 @@ footer {
     }
 
     .slim-subtitle h2 {
-        font-size: 3.5vh;
+        font-size: 3vh;
     }
 
     .slim-header-home .slim-title h1{
@@ -662,6 +664,18 @@ footer {
     .slim-navbar-toggler i {
         color: #FFF8E8; 
     }
+
+    .workshop-view .slim-section.workshop {
+        flex-direction: column;
+    }
+
+    .workshop-view .slim-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .workshop-view .slim-grid .workshop-item:nth-child(3) {
+        display: none;
+    } 
 
     .slim-section.workshop {
         flex-direction: column-reverse;
@@ -798,6 +812,14 @@ footer {
     .slim-section.workshop .slim-section-button {
         height: 15%;
     }
+
+    .workshop-view .slim-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .workshop-view .slim-grid .workshop-item:nth-child(2) {
+        display: none;
+    } 
 }
 
 @media (max-width: 530px) {
@@ -844,40 +866,10 @@ footer {
 
 @media (max-width: 420px) {
     p {
-        font-size: 1.6vh;
+        font-size: 1.4vh;
     }
 
     .slim-section.workshop .slim-img-wrapper img {
         width: 200px;
-    }
-}
-
-@media (max-width: 355px) {
-    .slim-section.workshop .slim-img-wrapper {
-        display: none;
-    }
-
-    .who-we-are .slim-title h1 {
-        font-size: 3.5vh;
-        text-align: center;
-        -webkit-text-stroke: 0.1px #FFF8E8; 
-    }
-
-    .slim-section.who-we-are .slim-img-wrapper {
-        display: none;
-    }
-
-    footer .slim-footer-section:nth-child(1) {
-        height: 50%;
-    }
-
-    .slim-footer-section-wrapper {
-        flex-direction: column;
-        height: 50%;
-    }
-
-    .slim-footer-section-wrapper .slim-footer-section {
-        align-items: center;
-        justify-content: center;
     }
 }
