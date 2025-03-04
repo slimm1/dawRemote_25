@@ -663,6 +663,18 @@ footer {
         color: #FFF8E8; 
     }
 
+    .workshop-view .slim-section.workshop {
+        flex-direction: column;
+    }
+
+    .workshop-view .slim-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .workshop-view .slim-grid .workshop-item:nth-child(3) {
+        display: none;
+    } 
+
     .slim-section.workshop {
         flex-direction: column-reverse;
         align-items: center;
@@ -798,6 +810,14 @@ footer {
     .slim-section.workshop .slim-section-button {
         height: 15%;
     }
+
+    .workshop-view .slim-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .workshop-view .slim-grid .workshop-item:nth-child(2) {
+        display: none;
+    } 
 }
 
 @media (max-width: 530px) {
