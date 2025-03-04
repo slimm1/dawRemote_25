@@ -873,3 +873,34 @@ footer {
         width: 200px;
     }
 }
+
+
+@media (max-width: 355px) {
+    .slim-section.workshop .slim-img-wrapper {
+        display: none;
+    }
+
+    .who-we-are .slim-title h1 {
+        font-size: 3.5vh;
+        text-align: center;
+        -webkit-text-stroke: 0.1px #FFF8E8; 
+    }
+
+    .slim-section.who-we-are .slim-img-wrapper {
+        display: none;
+    }
+
+    footer .slim-footer-section:nth-child(1) {
+        height: 50%;
+    }
+
+    .slim-footer-section-wrapper {
+        flex-direction: column;
+        height: 50%;
+    }
+
+    .slim-footer-section-wrapper .slim-footer-section {
+        align-items: center;
+        justify-content: center;
+    }
+}
