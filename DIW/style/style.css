@@ -35,6 +35,7 @@ footer {
     position: relative;
     overflow: hidden;
     height: 100vh;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
 }
 
 .slim-header-main::before {

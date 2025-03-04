@@ -17,7 +17,7 @@
             </div>
             <div class="slim-nav-items">
                 <a class="slim-nav-item" href="#">Catálogo</a>
-                <a class="slim-nav-item" href="#">Talleres</a>
+                <a class="slim-nav-item" href="workshop.html">Talleres</a>
                 <a class="slim-nav-item" href="#">Empresa</a>
                 <a class="slim-nav-item" href="#">Contacto</a>
             </div>
@@ -87,7 +87,7 @@
                 </p>
             </div>
             <div class="slim-section-button">
-                <a class="slim-action-button" href="">Próximos talleres</a>
+                <a class="slim-action-button" href="workshop.html">Próximos talleres</a>
             </div>
         </div>
     </div>
@@ -127,4 +127,12 @@
         </div>
     </footer>
 </body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const homeButton = document.getElementById('home-btn');
+        homeButton.addEventListener('click',  () => {
+            window.location.href = 'index.html'
+        });
+    });
+</script>
 </html>
