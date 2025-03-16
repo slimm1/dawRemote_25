@@ -1,17 +1,16 @@
 <?php
 
-namespace Src\Repository;
+namespace App\Repository;
 
 use App\Connection;
 use App\Entity\Product;
 use PDO;
+use stdClass;
 
 class ProductRepository {
 
-    private Connection $connection;
-
-    public function __construct(Connection $connection) 
-    {
+    private $connection;
+    public function __construct(Connection $connection) {
         $this->connection = $connection;
     }
 
@@ -19,17 +18,7 @@ class ProductRepository {
     {    
         $query = "SELECT * FROM productos";
         $pdo = $this->connection->getConnection();
-        $products = $pdo->query($query)->fetchAll(PDO::FETCH_ASSOC);
-        return array_map(function ($row) {
-            return new Product(
-                $row['id'],
-                $row['nombre'],
-                $row['nombre_corto'],
-                $row['descripcion'],
-                $row['pvp'],
-                $row['familia']
-            );
-        }, $products);
+        return $pdo->query($query)->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function getProductById(int $id): Product
@@ -43,16 +32,16 @@ class ProductRepository {
         return new Product($product["id"], $product["nombre"], $product["nombre_corto"], $product["descripcion"], $product["pvp"], $product["familia"]);
     }
 
-    public function createProduct(Product $product): void
+    public function createProduct(stdClass $product): void
     {
         $query = "INSERT INTO productos (nombre, nombre_corto, descripcion, pvp, familia) VALUES (:nombre, :nombre_corto, :descripcion, :pvp, :familia)";
         $pdo = $this->connection->getConnection();
         
-        $name = $product->getName();
-        $shortName = $product->getShortName();
-        $description = $product->getDescription();
-        $pvp = $product->getPvp();
-        $family = $product->getFamily();
+        $name = $product->name;
+        $shortName = $product->shortName;
+        $description = $product->description;
+        $pvp = $product->pvp;
+        $family = $product->family;
         
         $statement = $pdo->prepare($query);
         $statement->bindParam(':nombre', $name, PDO::PARAM_STR);
