@@ -47,7 +47,7 @@ body{
     margin-top: 30px;
     position: absolute;
     width: 72px;
-    height: 97px;
+    height: 96px;
     background: url('./../assets/cartas.png') 0 -384px;
 }
 
@@ -71,5 +71,37 @@ body{
 
 .slim-content {
     display: grid;
-    grid-template-columns: 1fr 1fr
+    grid-template-rows: 1fr 1fr
+}
+
+.player {
+    display: flex;
+    align-items: end;
+    justify-content: center;
+}
+
+.crupier {
+    display: flex;
+    align-items: start;
+    justify-content: center;  
+}
+
+.cards-display {
+    padding: 10px;
+    border: 2px solid black;
+    margin-bottom: 100px;
+    margin-top: 100px;
+    background-color: #1F7D53;
+    display: none;
+    flex-direction: row;
+}
+
+.slim-info > span {
+    font-weight: normal;
+}
+
+.game-card {
+    width: 72px;
+    height: 96px;
+    margin: 5px;
 }

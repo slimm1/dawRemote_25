@@ -7,40 +7,47 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Code+Latin:wght@100..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
-    <title>Document</title>
+    <title>BlackJack casero</title>
 </head>
 <body>
     <div class="slim-main">
         <div class="slim-left">
             <div class="slim-container">
-                <div class="slim-info">Mesa:<span></span></div>
-                <div class="slim-info">Jugador:<span></span></div>
-                <div class="slim-info">Balance:<span></span></div>
-                <div class="slim-info">Apuesta:<span></span></div>
+                <div id="crupier-score" class="slim-info">Mesa:&nbsp;<span>0</span></div>
+                <div id="player-score" class="slim-info">Jugador:&nbsp;<span>0</span></div>
+                <div id="current-balance" class="slim-info">Balance:&nbsp;<span>100€</span></div>
+                <div id="current-bet" class="slim-info">Apuesta:&nbsp;<span>0€</span></div>
             </div>
         </div>
         <div class="slim-content">
             <div class="crupier">
-                
+                <div class="cards-display">
+                    
+                </div>
             </div>
             <div class="player">
-
+                <div class="cards-display">
+                    
+                </div>
             </div>
         </div>
         <div class="slim-right">
             <div class="deck">
-                <div>
-
-                </div>
+                <div></div>
             </div>
             <div>
                 <div class="slim-button-row">
-                    <button>Nueva partida</button>
-                    <button>Pedir carta</button>
-                    <button>Plantarse</button>
+                    <button id="new-game">Nueva partida</button>
+                    <button id="get-card" disabled>Pedir carta</button>
+                    <button id="end-game" disabled>Plantarse</button>
                 </div>
             </div>
         </div>
     </div>
 </body>
+<script src="js/class/Carta.js"></script>
+<script src="js/class/Palo.js"></script>
+<script src="js/class/Mano.js"></script>
+<script src="js/class/Mazo.js"></script>
+<script src="js/main.js"></script>
 </html>
