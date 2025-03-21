@@ -37,7 +37,7 @@ class Mano {
                 default: total += 10; break;
             }
         }
-        
+        // He hecho un algoritmo de decisión hipersencillo para que el programa asigne un valor al AS en función del total en la mano
         if(asCount > 0) {
             for(let i = 0; i < asCount; i++){
                 if((total + 11) > 21){

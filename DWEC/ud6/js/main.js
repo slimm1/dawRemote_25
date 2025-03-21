@@ -1,6 +1,7 @@
 let mazo = null;
 let mano = null; 
 
+// añadir eventos a los botones al cargar la página
 document.addEventListener('DOMContentLoaded', () => {
     const newGameButton = document.getElementById('new-game');
     const endGameButton = document.getElementById('end-game');
@@ -11,7 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
     endGameButton.addEventListener('click', () => plantarse());
 });
 
+// función para iniciar el juego.
 function startNewGame() {
+    // reiniciar la mesa
     resetTable();
     const currentBalanceElement = document.getElementById('current-balance').querySelector('span');
     const betElement = document.getElementById('current-bet').querySelector('span');
@@ -19,6 +22,7 @@ function startNewGame() {
     let currentBalance = currentBalanceElement.innerText;
     currentBalance = Number(currentBalance.substring(0, currentBalance.indexOf('€')));
     
+    // recojo la apuesta que va a realizar el jugador
     let bet = prompt('Introduce la cantidad que deseas apostar:');
     bet = validateBet(bet, currentBalance);
 
@@ -26,11 +30,13 @@ function startNewGame() {
         return;
     }
 
+    // activar botones para pedir carta o plantarse
     handleButtons(false);
 
     currentBalanceElement.innerText = (currentBalance - bet) + '€';
     betElement.innerText = bet + '€';
 
+    // Iniciar una nueva mano, y el mazo si no está iniciado
     mano = new Mano();
     if(!mazo){
         mazo = new Mazo();
@@ -39,12 +45,16 @@ function startNewGame() {
     }
 }
 
+// Funcion para dar cartas. Maneja también la renderización de los elementos carta.
 function giveCard() {
+    // extraer la carta del mazo y añadirla a la mano del jugador.
     const card = mazo.daCarta();
     mano.anadirCarta(card);
+    // extraer las dimensiones para renderizar la carta del sprite.
     const width = getSpriteWidth(card.valor);
     const heigth = getSpriteHeigth(card.palo);
 
+    // renderizar la carta 
     const playerCardsDisplay = document.querySelector('.player .cards-display');
     const newCard = document.createElement('div');
     newCard.classList.add('game-card');
@@ -53,15 +63,18 @@ function giveCard() {
     playerCardsDisplay.append(newCard);
     playerCardsDisplay.style.display = 'flex';
 
+    // mostrar la puntuación obtenida
     const playerScoreElement = document.getElementById('player-score').querySelector('span');
     playerScoreElement.innerText = mano.cuentaPuntos();
 
+    // Si al pedir carta te pasas de 21, has perdido.
     if(mano.cuentaPuntos() > 21){
         alert('HAS PERDIDO');
         handleButtons(true);
     }
 }
 
+// Determina la altura del sprite en función del palo
 function getSpriteHeigth(palo) {
     switch (palo) {
         case 'diamantes': return 288;
@@ -71,6 +84,7 @@ function getSpriteHeigth(palo) {
     }
 }
 
+// Determina el ancho del sprite en función del valor de la carta
 function getSpriteWidth(valor) {
     const base = 71;
     switch(valor) {
@@ -90,6 +104,7 @@ function getSpriteWidth(valor) {
     }
 }
 
+// Valida que la apuesta sea un valor numérico dentro de los valores permitidos
 function validateBet(bet, currentBalance){
     bet = Number(bet);
 
@@ -111,6 +126,7 @@ function validateBet(bet, currentBalance){
     return bet;
 } 
 
+// Activa o desactiva los botones
 function handleButtons(newGame) {
     const buttons = document.querySelectorAll('button');
     for(let i = 0; i < buttons.length; i++){
@@ -122,6 +138,7 @@ function handleButtons(newGame) {
     }
 }
 
+// reinicia la mesa, la mano y la baraja
 function resetTable() {
     const playerScoreElement = document.getElementById('player-score').querySelector('span');
     const crupierScoreElement = document.getElementById('crupier-score').querySelector('span');
@@ -145,8 +162,10 @@ function plantarse() {
     const crupierScoreElement = document.getElementById('crupier-score').querySelector('span');
     const currentBalanceElement = document.getElementById('current-balance').querySelector('span');
     const betElement = document.getElementById('current-bet').querySelector('span');
+    // iniciar una nueva mano para el crupier
     const manoCrupier = new Mano();
 
+    // mientras el valor de la mano del crupier sea menor de 17, se siguen sacando cartas
     while(manoCrupier.cuentaPuntos() < 17){
         const card = mazo.daCarta();
         manoCrupier.anadirCarta(card);
@@ -162,8 +181,10 @@ function plantarse() {
         crupierCardsDisplay.style.display = 'flex';
     }
 
+    // mostrar la puntuación del crupier
     crupierScoreElement.innerText = manoCrupier.cuentaPuntos();
     
+    // condiciones de derrota, empate o victoria.
     if(manoCrupier.cuentaPuntos() > 21 || manoCrupier.cuentaPuntos() < mano.cuentaPuntos()) {
         alert('HAS GANADO');
 
@@ -172,6 +193,7 @@ function plantarse() {
         let currentBalance = currentBalanceElement.innerText;
         currentBalance = Number(currentBalance.substring(0, currentBalance.indexOf('€')));
 
+        // si ganas, recibes el doble de lo apostado.
         currentBalanceElement.innerText = (currentBalance + bet*2) + '€';
     } else if(manoCrupier.cuentaPuntos() === mano.cuentaPuntos()) {
         alert('EMPATE')
@@ -181,9 +203,11 @@ function plantarse() {
         let currentBalance = currentBalanceElement.innerText;
         currentBalance = Number(currentBalance.substring(0, currentBalance.indexOf('€')));
 
+        // si hay empate, recuperas lo apostado
         currentBalanceElement.innerText = (currentBalance + bet) + '€';
     } else {
         alert('HAS PERDIDO');
     }
+    // se desactivan los botones.
     handleButtons(true);
 }

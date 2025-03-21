@@ -17,11 +17,11 @@ class Mazo {
             }
         }
 
-        // Desoedenar el array cartas
+        // Desordenar el array cartas
         for (let i = this.cartas.length - 1; i > 0; i--) {
             // Valor random entre 0 y el valor de la iteración del bucle
             let rnd = Math.floor(Math.random() * (i + 1));
-            // uso de desestructuración para intercambiar los valores del array
+            // uso de desestructuración para intercambiar los valores del array. No conocía este concepto y me ha gustado mucho
             [this.cartas[i], this.cartas[rnd]] = [this.cartas[rnd], this.cartas[i]];
         }
 
@@ -32,6 +32,7 @@ class Mazo {
     }
 
     daCarta() {
+        // recoger el primer elemento del array
         return this.cartas.shift();
     }
 }
