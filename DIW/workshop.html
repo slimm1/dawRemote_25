@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="shortcut icon" href="assets/manos-al-barro-high-resolution-logo-transparent.png" type="image/png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
@@ -51,6 +50,131 @@
                 <a class="slim-nav-item" href="workshop.html">Talleres</a>
                 <a class="slim-nav-item" href="#">Empresa</a>
                 <a class="slim-nav-item" href="#">Contacto</a>
+            </div>
+        </div>
+    </div>
+    <div class="slim-section slim-carousel">
+        <div class="slim-title">
+            <h1>Galería</h1>
+        </div>
+        <div id="carousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img class="d-block w-100" src="assets/hola-ceramica3-1024x683.jpg" alt="First slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="assets/workshop.webp" alt="Second slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="assets/sample barro.jpg" alt="Third slide">
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+    <div class="slim-section slim-form">
+        <div class="slim-title">
+            <h1>Inscripción rápida</h1>
+        </div>
+        <div class="slim-section-content slim-row">
+            <div class="slim-form-container">
+                <form id="myForm" class="needs-validation" novalidate>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputName">Nombre</label>
+                            <input type="text" class="form-control" id="inputName" placeholder="Nombre" required>
+                            <div class="invalid-feedback">Por favor, ingresa tu nombre.</div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputSurname">Apellido</label>
+                            <input type="text" class="form-control" id="inputSurname" placeholder="Apellido" required>
+                            <div class="invalid-feedback">Por favor, ingresa tu apellido.</div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="birthInput">Fecha de nacimiento</label>
+                            <input type="date" class="form-control" id="birthInput" required>
+                            <div class="invalid-feedback">Selecciona tu fecha de nacimiento.</div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="countryInput">País</label>
+                            <select class="form-control" id="countryInput" required>
+                                <option value="" disabled selected>Selecciona un país...</option>
+                                <option>Albania</option>
+                                <option>España</option>
+                                <option>Malasia</option>
+                                <option>Argentina</option>
+                                <option>Marruecos</option>
+                            </select>
+                            <div class="invalid-feedback">Selecciona tu país.</div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="city">Ciudad</label>
+                            <select class="form-control" id="city" required>
+                                <option value="" disabled selected>Selecciona una ciudad...</option>
+                                <option>Buenos Aires</option>
+                                <option>Navarrete</option>
+                                <option>Fuenmayor</option>
+                                <option>Pamplona</option>
+                                <option>Logroño</option>
+                            </select>
+                            <div class="invalid-feedback">Selecciona tu ciudad.</div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="addressInput">Dirección</label>
+                            <input type="text" class="form-control" id="addressInput" placeholder="Dirección" required>
+                            <div class="invalid-feedback">Ingresa tu dirección.</div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="emailInput">Email</label>
+                            <input type="email" class="form-control" id="emailInput" placeholder="Email" required>
+                            <div class="invalid-feedback">Ingresa un correo válido.</div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="workshopSelect">Taller</label>
+                            <select class="custom-select my-1 mr-sm-2" id="workshopSelect" required>
+                                <option value="" disabled selected>Elige un taller...</option>
+                                <option value="1">Uno</option>
+                                <option value="2">Dos</option>
+                                <option value="3">Tres</option>
+                            </select>
+                            <div class="invalid-feedback">Selecciona un taller.</div>
+                        </div>
+                    </div>
+                    <button id="submitBtn" class="btn btn-dark" type="submit">Enviar</button>
+                      
+                    <div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">¿¿Estás seguro??</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                La información será almacecnada en nuestra vbase de datos. Serás notificado en cuanto se confirme tu solicitud.
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                <button id="confirmSubmit" type="button" class="btn btn-primary">Continuar</button>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -101,7 +225,7 @@
         <div class="slim-title">
             <h1>Años de experiencia</h1>
         </div>
-        <div class="slim-section-content row">
+        <div class="slim-section-content slim-row">
             <div class="slim-section-p">
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.
@@ -141,5 +265,28 @@
         </div>
     </footer>
 </body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
 <script src="js/index.js"></script>
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function() {
+      'use strict';
+      window.addEventListener('load', function() {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function(form) {
+          form.addEventListener('submit', function(event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      }, false);
+    })();
+    </script>
 </html>

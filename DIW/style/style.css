@@ -1,6 +1,15 @@
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0;
+    font-family: inherit;
+    font-weight: bold;
+    line-height: inherit;
+    color: inherit;
+}
+
 body {
     margin: 0;
     font-family: "Open Sans", sans-serif;
+    line-height: normal;
 }
 
 h1 {
@@ -136,6 +145,10 @@ footer {
     -webkit-text-stroke: 1px #FFF8E8; 
 }
 
+.slim-title {
+    padding-top: 2vh;
+}
+
 .slim-header-home .slim-title {
     display: flex;
     justify-content: space-between;
@@ -166,9 +179,9 @@ footer {
     height: 60vh;
 }
 
-.who-we-are .slim-title {
+.slim-section .slim-title {
     display: flex;
-    height: 30%;
+    height: 20%;
     align-items: center;
 }
 
@@ -176,6 +189,20 @@ footer {
     background-color: #FFF8E8;
     display: flex;
     flex-direction: column;
+}
+
+.slim-section.slim-form {
+    height: auto;
+    background-color: #FFF8E8;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 5vh;
+}
+
+.slim-form-container {
+    width: 95%;
+    margin-left: 2%;
+    margin-right: 2.5%;
 }
 
 .who-we-are .slim-section-p {
@@ -190,8 +217,8 @@ footer {
     text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
 }
 
-.slim-section-content.row {
-    height: 70%;
+.slim-section-content.slim-row {
+    height: 80%;
     display: flex;
     flex-direction: row;
 }
@@ -215,6 +242,7 @@ footer {
     padding: 2%;
     padding-top: 0;
     align-items: center;
+    box-sizing: unset;
 }
 
 .who-we-are .slim-img-wrapper img {
@@ -277,7 +305,7 @@ footer {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
 }
 
-.slim-section-content.col {
+.slim-section-content.slim-col {
     display: flex;
     flex-direction: column;
     width: 65%;
@@ -455,7 +483,7 @@ footer {
 /* ESTILOS ESPECIFICOS DE VISTA DE TALLERES */
 
 .workshop-view .slim-header-main {
-    height: 80vh;
+    height: 100vh;
 }
 
 .workshop-view .slim-header-main::before {
@@ -498,6 +526,10 @@ footer {
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     overflow: hidden; 
+}
+
+.workshop-item {
+    box-sizing: unset;
 }
 
 .workshop-item p {
@@ -543,7 +575,7 @@ footer {
     position: fixed;
     top: 0;
     right: 0;
-    width: 300px;
+    min-width: 350px;
     height: 100vh;
     background-color: #AAB396;
     padding: 20px;
@@ -590,6 +622,20 @@ footer {
     font-size: 24px;
     color: #674636;
     cursor: pointer;
+}
+
+.slim-section.slim-carousel {
+    background-color: #FFF8E8;
+    height: auto;
+}
+
+#carousel {
+    padding-top: 2vh;
+    height: 400px;
+}
+
+.carousel-inner {
+    height: 100%;
 }
 
 /* Media queries */
@@ -738,12 +784,12 @@ footer {
         height: 100vh;
     }
     
-    .slim-section-content.col {
+    .slim-section-content.slim-col {
         width: 100%;
         height: 100%;
     }
 
-    .slim-section-content.col .slim-title {
+    .slim-section-content.slim-col .slim-title {
         justify-content: center;
     }
 
@@ -761,6 +807,7 @@ footer {
 }
 
 @media (max-width: 800px) {
+
     .workshop-view .slim-header-home .slim-title h1 {
         font-size: 4vh;
         -webkit-text-stroke: 0.2px #FFF8E8; 
@@ -770,7 +817,7 @@ footer {
         height: 20%;
     }
 
-    .slim-section-content.row {
+    .slim-section-content.slim-row {
         height: 80%;
     }
 
@@ -822,7 +869,7 @@ footer {
         justify-content: center;
     }
 
-    .who-we-are .slim-section-content.row {
+    .who-we-are .slim-section-content.slim-row {
         width: 100%;
         flex-direction: column;
     }

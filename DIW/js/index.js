@@ -7,6 +7,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     burgerMenu.addEventListener('click', () => toggleBurgerMenu());
+
+    // Uso de Jquery para mostrar el modal en caso de pasar las validaciones establecidas
+    $("#myForm").submit(function(event) {
+        event.preventDefault(); 
+        if (this.checkValidity()) {
+            $("#confirmationModal").modal("show"); 
+            this.reportValidity(); 
+        }
+    });
+
+    $("#confirmSubmit").click(function() {
+        $("#myForm")[0].submit();
+    });
+    
 });
 
 function toggleBurgerMenu() {
