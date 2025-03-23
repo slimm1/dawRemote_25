@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // escuchar evento click del boton de confirmar del modal
     $("#confirmSubmit").click(function() {
         $("#myForm")[0].submit();
     });
