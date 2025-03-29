@@ -1,9 +1,9 @@
 <?php
 
-namespace Src\Repository;
+namespace App\Repository;
 
-use Src\Connection;
-use Entity\Family;
+use App\Connection;
+use App\Entity\Family;
 use PDO;
 
 class FamilyRepository {
@@ -28,9 +28,9 @@ class FamilyRepository {
         }, $families);
     }
 
-    public function getFamilyByCode(int $code): Family
+    public function getFamilyByCode(string $code): Family
     {
-        $query = "SELECT nombre FROM familias WHERE cod = :cod";
+        $query = "SELECT * FROM familias WHERE cod = :cod";
         $pdo = $this->connection->getConnection();
         $statement = $pdo->prepare($query);
         $statement->bindParam(":cod", $code, PDO::PARAM_STR);

@@ -28,7 +28,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($productos as $product)
+            @foreach ($products as $product)
             <tr>
                 <td>
                     <form action="detalle.php" method="GET">

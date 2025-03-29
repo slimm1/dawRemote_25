@@ -1,12 +1,14 @@
 <?php
 
-    use eftec\bladeone\BladeOne;
-    use Src\Connection;
-    use Src\Repository\FamilyRepository;
-    use Src\Repository\ProductRepository;
+    require_once __DIR__ . '/../vendor/autoload.php';
 
-    $viewsDir = __DIR__ . "/views";
-    $cacheDir = __DIR__ . "/cache";
+    use eftec\bladeone\BladeOne;
+    use App\Connection;
+    use App\Repository\FamilyRepository;
+    use App\Repository\ProductRepository;
+
+    $viewsDir = __DIR__ . "/../views";
+    $cacheDir = __DIR__ . "/../cache";
 
     $bladeOne = new BladeOne($viewsDir, $cacheDir, BladeOne::MODE_AUTO);
 
@@ -21,7 +23,7 @@
         $product = $productRepository->getProductById( $id );
         $families = $familyRepository->getAllFamilies();
 
-        $bladeOne->run('edit', [
+        echo $bladeOne->run('edit', [
             'product' => $product,
             'families' => $families
         ]);

@@ -1,23 +1,23 @@
 <?php
 
-namespace Entity;
+namespace App\Entity;
 
 class Family {
-    private int $code;
+    private string $code;
     private string $name;
 
-    public function __construct(int $code, string $name)
+    public function __construct(string $code, string $name)
     {
         $this->code = $code;
         $this->name = $name;
     }
 
-    public function getCode(): int
+    public function getCode(): string
     {
         return $this->code;
     }
 
-    public function setCode(int $code): void
+    public function setCode(string $code): void
     {
         $this->code = $code;
     }

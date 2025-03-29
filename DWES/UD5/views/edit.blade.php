@@ -44,9 +44,9 @@
             <label for="familia">Familia:</label>
             <select name="familia" id="familia" required>
                 @foreach ($families as $family)
-                    <option value="{{ htmlspecialchars($fami->cod) }}" 
+                    <option value="{{ htmlspecialchars($family->getCode()) }}" 
                         @if ($product->getFamily() == $family->getCode()) selected @endif>
-                        {{ htmlspecialchars($fami->nombre) }}
+                        {{ htmlspecialchars($family->getname()) }}
                     </option>
                 @endforeach
             </select>
