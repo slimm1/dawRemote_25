@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalle del Producto</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Evento DOMContentLoaded para realizar la petición AJAX nada más cargar esta página.
+            const params = new URLSearchParams(window.location.search);
+            // extraer el parámetro id de la petición GET.
+            const id = params.get('id');
+
+            // SI no existe id, muestro un mensaje de error
+            if (!id) {
+                document.getElementById('contenido').innerHTML = '<p>Error: ID no proporcionado.</p>';
+                return;
+            }
+
+            // Instanciar el objeto XMLHttpRequest y abrir la conexion por GET hacia el fichero product_detail.php
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET', `product_detail.php?id=${id}`, true);
+            
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        // Si la petición supera las dos comprobaciones de estado, recupero la información en la variable data.
+                        const data = JSON.parse(xhr.responseText);
+
+                        if (data.error) {
+                            // Si existe la variable error en la respuesta, la pinto.
+                            document.getElementById('contenido').innerHTML = `<p>${data.error}</p>`;
+                        } else {
+                            // De lo contrario, pinto la información recuperada:
+                            document.getElementById('contenido').innerHTML = `
+                                <p><strong>ID:</strong> ${data.id}</p>
+                                <p><strong>Nombre:</strong> ${data.nombre}</p>
+                                <p><strong>Nombre corto:</strong> ${data.nombre_corto}</p>
+                                <p><strong>Descripción:</strong> ${data.descripcion}</p>
+                                <p><strong>PVP:</strong> ${data.pvp}</p>
+                                <p><strong>Familia:</strong> ${data.familia_nombre}</p>
+                                <a href="list.php">Volver al listado</a>
+                            `;
+                        }
+                    } else {
+                        // Si el estado es diferente a 200, muestro un error:
+                        document.getElementById('contenido').innerHTML = '<p>Error al cargar los datos del producto.</p>';
+                    }
+                }
+            };
+
+            xhr.send();
+        });
+    </script>
+</head>
+<body>
+    <h1>Detalle del Producto</h1>
+    <div id="contenido">
+        <!-- En este contenedor se renderiza la respuesta de la petición AJAX -->
+        <p>Cargando datos del producto...</p>
+    </div>
+</body>
+</html>
