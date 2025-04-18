@@ -1,0 +1,57 @@
+button {
+    cursor: pointer;
+}
+
+.pokemon-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+    justify-content: center;
+}
+
+.pokemon-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 12px;
+    width: 150px;
+    text-align: center;
+    box-shadow: 2px 2px 8px #aaa;
+    cursor: pointer;
+}
+
+.pokemon-card.active {
+    border: 3px solid #ff0000;
+}
+
+.pokemon-card.winner {
+    background-color: rgb(255, 255, 170);
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.grid-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+img {
+    width: 96px;
+    height: 96px;
+}
+
+.button-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-row button {
+    margin-left: 20px;
+}
