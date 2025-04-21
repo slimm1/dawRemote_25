@@ -638,6 +638,10 @@ footer {
     height: 100%;
 }
 
+.slim-section.video {
+    height: fit-content;
+}
+
 /* Media queries */
 @media (max-width: 1650px) {
     .workshop .slim-img-wrapper img {
