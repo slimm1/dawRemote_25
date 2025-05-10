@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <style>
+        #create{
+            display: flex;
+            margin-top: 10px;
+            justify-content: center;
+        }
+        td {
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Listado</h1>
+    <table border="1" style="width: 100%; border-collapse: collapse; text-align: left;">
+    <thead>
+        <tr>
+            <th>Detalle</th>
+            <th>Código</th>
+            <th>Nombre</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
+        </tr>
+    </thead>
+    <tbody id="tabla-productos">
+    </tbody>
+</table>
+<button id="create">
+    <a href="create.html">CREAR NUEVO</a>
+</button>
+</body>
+<script>
+
+    function deleteProduct() {
+        var confirmacion = confirm("¿Estás seguro de que deseas eliminar este producto?");
+        
+        if (!confirmacion) {
+            event.preventDefault();
+        }
+    }
+
+    function loadDetailView(productId) {
+        window.location.href = `detalle.html?id=${productId}`;
+    }
+
+    function loadEditView(productId) {
+        window.location.href = `edit.html?id=${productId}`;
+    }
+
+    function removeProduct(productId) {
+        fetch('server.php', {
+            method: 'DELETE', 
+            headers: {
+                'Content-Type': 'application/json', 
+            },
+            body: JSON.stringify({ id: productId })
+        })
+        .then(response => {
+            if (response.ok) {
+                alert('Producto eliminado correctamente');
+                window.location.href = 'list.html'; 
+            } else {
+                return response.json().then(errorData => {
+                    throw new Error(`Error: ${errorData.error} - ${errorData.detalle}`);
+                });
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Error al eliminar el producto: ' + error.message);
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+    // Recuperar la lista de productos y renderizarla a través del método GET de mi servidor.
+    fetch('server.php')  
+        .then(response => {
+            if (!response.ok) throw new Error("Error al cargar los productos");
+            return response.json();
+        })
+        .then(productos => {
+            const tbody = document.getElementById('tabla-productos');
+            tbody.innerHTML = ''; 
+
+            productos.forEach(product => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>
+                        <button class="btn-detalles" onclick="loadDetailView('${product.id}')">Detalles</button>
+                    </td>
+                    <td>${product.id}</td>
+                    <td>${product.nombre}</td>
+                    <td>
+                        <button id="editar" type="submit" onclick="loadEditView('${product.id}')">Editar</button>
+                    </td>
+                    <td>
+                        <button id="eliminar" type="submit" onclick="removeProduct('${product.id}')">Eliminar</button>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        })
+        .catch(error => {
+            console.error("Error:", error);
+        });
+});
+</script>
+</html>

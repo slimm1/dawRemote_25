@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Producto</title>
+</head>
+<body>
+    <h1>Detalle del Producto</h1>
+    <div id="detalle-producto">
+        Cargando...
+    </div>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id');
+
+        // Hacer petición a server.php
+        fetch(`server.php?id=${id}`)
+            .then(response => response.json())
+            .then(producto => {
+                const div = document.getElementById('detalle-producto');
+                div.innerHTML = `
+                    <p><strong>ID:</strong> ${producto.id}</p>
+                    <p><strong>Nombre:</strong> ${producto.nombre}</p>
+                    <p><strong>Descripción:</strong> ${producto.descripcion}</p>
+                    <p><strong>Familia:</strong> ${producto.familia_nombre}</p>
+                `;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('detalle-producto').innerText = "No se pudo cargar el detalle.";
+            });
+    </script>
+    <a href="list.html">Volver al listado</a>
+</body>
+</html>
