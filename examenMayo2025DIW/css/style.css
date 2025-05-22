@@ -1,0 +1,226 @@
+/* EXAMEN MARTÍN RAMONDA SÁENZ */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.header-section.main a {
+    text-decoration: none;
+    color: black;
+}
+
+button {
+    cursor: pointer;
+}
+
+input {
+    border: none;
+    background-color: rgb(211, 211, 211);
+    padding: 10px;
+}
+
+header {
+    height: 10vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 0.5fr;
+    gap: 10px;
+}
+
+header .burger-menu {
+    display: none;
+    font-size: 35px;
+    cursor: pointer;
+}
+
+footer {
+    min-height: 10vh;
+    background-color: rgb(228, 211, 255);
+}
+
+header img {
+    height: 100%;
+}
+
+.app-button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+
+header .app-button {
+    background-color: rgb(127, 102, 218);
+}
+
+.header-section {
+    display: flex;
+    align-items: center;
+    height: inherit;
+}
+
+.header-section:nth-child(3) {
+    justify-content: flex-end;
+    padding-right: 10px;
+}
+
+.header-section.main {
+    justify-content: space-between;
+    margin-top: 5px; /*Para que esté alineado con el logo*/
+}
+
+.header-section h1 {
+    font-weight: bold;
+}
+
+.section {
+    min-height: 50vh;
+}
+
+.section-1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 30px;
+    background-color: #f9f9f9;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.image-col {
+    height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-col img {
+    width: 100%;
+}
+
+.form-wrapper .app-button {
+    background-color: rgb(245, 185, 116);
+}
+
+.section-1 .info-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.section-1 .title h1 {
+    font-size: 4em;
+    transition: all 15s;
+}
+
+.section-1 .title h1:hover {
+    color: rgb(127, 102, 218);
+}
+
+.section-1 .info-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 150px;
+    gap: 5px;
+}
+
+.item-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.check-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    padding: 10px 15px 10px 0;
+    background-color: inherit;
+}
+
+.section-2 {
+    display: grid;
+    grid-template-rows: 0.5fr 1fr;
+    gap: 10px;
+    padding-top: 50px;
+}
+
+.section-2 .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-header .title {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    width: 50%;
+}
+
+.section-2 .cards-grid {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.card-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-button-wrapper {
+    display: flex;
+    gap: 5px;
+}
+
+.card-button-wrapper a {
+    color: rgb(127, 102, 218);
+    text-decoration: none;
+}
+
+.card-button-wrapper span {
+    color: rgb(127, 102, 218);
+}
+
+.card {
+    box-shadow: 0 0 10px 1px #c1c1c1;
+}
+
+@media (max-width: 850px) {
+    header {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .header-section.main {
+        display: none;
+    }
+
+    header .app-button{
+        display: none;
+    }
+    header .burger-menu {
+        display: block;
+    }
+
+    .section-1 {
+        grid-template-rows: auto 1fr;
+        grid-template-columns: none;
+    }
+}
+
+@media (max-width: 960px) {
+    .section-2 .cards-grid {
+        grid-template-columns: none;
+        padding: 0;
+    }
+}
